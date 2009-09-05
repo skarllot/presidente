@@ -1,0 +1,32 @@
+format 67
+
+classcanvas 128002 class_ref 138370 // Server
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 33 29 2000
+end
+classcanvas 128130 class_ref 138498 // Client
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 432 29 2000
+end
+usecasecanvas 128258 usecase_ref 153474 // MANAGE CONNECTIONS
+  xyzwh 62 137 3005 64 32 label_xy 29 169
+end
+usecasecanvas 128386 usecase_ref 153602 // MANAGE MATCH
+  xyzwh 213 144 3005 64 32 label_xy 201 176
+end
+usecasecanvas 128514 usecase_ref 153730 // MANAGE CHAT
+  xyzwh 356 137 3005 64 32 label_xy 348 169
+end
+line 128642 ----
+  from ref 128002 z 3006 to ref 128258
+line 128770 ----
+  from ref 128002 z 3006 to ref 128386
+line 128898 ----
+  from ref 128002 z 3006 to ref 128514
+line 129026 ----
+  from ref 128130 z 3006 to ref 128514
+line 129154 ----
+  from ref 128130 z 3006 to ref 128386
+line 129282 ----
+  from ref 128130 z 3006 to ref 128258
+end

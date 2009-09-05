@@ -1,0 +1,67 @@
+format 67
+
+classinstance 128002 class_ref 138498 // Client
+  name ""   mortal  xyz 19.0794 4.65218 2000 life_line_z 2000
+classinstance 128130 class_ref 165250 // UserInterface
+  name "main_screen"   mortal  xyz 101.183 4.65218 2000 life_line_z 2000
+classinstance 128642 class_ref 171778 // Client
+  name "client"   mortal  xyz 280.512 30.6953 0 life_line_z 0
+classinstance 129026 class_ref 138370 // Server
+  name ""   mortal  xyz 436.032 4.65218 4020 life_line_z 2010
+durationcanvas 128258 classinstance_ref 128002 // :Client
+  xyzwh 30 77.3744 2010 11 177
+end
+durationcanvas 128386 classinstance_ref 128130 // main_screen:UserInterface
+  xyzwh 164 77.7562 2010 11 161
+  overlappingdurationcanvas 130178
+    xyzwh 170 178.431 2020 11 25
+  end
+end
+durationcanvas 128770 classinstance_ref 128642 // client:Client
+  xyzwh 308 83.0995 5 11 100
+end
+durationcanvas 129154 classinstance_ref 129026 // :Server
+  xyzwh 450 82.2723 2015 11 77
+end
+msg 128514 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 77 2015 explicitmsg "write a message"
+  show_full_operations_definition default drawing_language default
+  label_xy 63 63
+msg 128898 synchronous
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128770
+  yz 88 2025 explicitmsg "send_message( )"
+  show_full_operations_definition default drawing_language default
+  label_xy 204 74
+msg 129282 synchronous
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 129154
+  yz 96 4045 explicitmsg "send_message( )"
+  show_full_operations_definition default drawing_language default
+  label_xy 342 82
+msg 129410 return
+  from durationcanvas_ref 129154
+  to durationcanvas_ref 128770
+  yz 137 4050 explicitmsg "response"
+  show_full_operations_definition default drawing_language default
+  label_xy 360 123
+msg 129922 return
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 128386
+  yz 159 2020 explicitmsg "response"
+  show_full_operations_definition default drawing_language default
+  label_xy 219 145
+msg 130050 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 221 2020 explicitmsg "show response"
+  show_full_operations_definition default drawing_language default
+  label_xy 66 207
+reflexivemsg 130306 synchronous
+  to durationcanvas_ref 130178
+  yz 176 2025 explicitmsg "parse_response( )"
+  show_full_operations_definition default drawing_language default
+  label_xy 205 175
+end

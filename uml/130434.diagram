@@ -1,0 +1,25 @@
+format 61
+
+usecasecanvas 128002 usecase_ref 133122 // Receber Comunicação
+  xyzwh 198 31 3005 64 32 label_xy 176 63
+end
+classcanvas 128130 class_ref 128130 // Servidor
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 30 61 2000
+end
+classcanvas 128258 class_ref 128258 // Jogador
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 395 50 2000
+end
+usecasecanvas 128642 usecase_ref 133250 // Enviar Comunicação
+  xyzwh 197 122 3005 64 32 label_xy 180 154
+end
+line 128514 --->
+  from ref 128002 z 1999 to ref 128130
+line 128770 --->
+  from ref 128130 z 1999 to ref 128642
+line 128898 --->
+  from ref 128642 z 1999 to ref 128258
+line 129026 --->
+  from ref 128258 z 1999 to ref 128002
+end

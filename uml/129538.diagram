@@ -1,0 +1,32 @@
+format 61
+
+classcanvas 128002 class_ref 128258 // Jogador
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 472 47 2000
+end
+classcanvas 128386 class_ref 128130 // Servidor
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 8 51 2000
+end
+usecasecanvas 130946 usecase_ref 131202 // Transmitir Conversa
+  xyzwh 160 7 3005 64 32 label_xy 144 39
+end
+usecasecanvas 131074 usecase_ref 131330 // Transmitir Jogada
+  xyzwh 161 108 3005 64 32 label_xy 151 140
+end
+usecasecanvas 131202 usecase_ref 131458 // Transmitir Mensagem
+  xyzwh 312 63 3005 64 32 label_xy 293 95
+end
+line 131714 ----
+  from ref 128386 z 1999 to ref 130946
+line 131842 ----
+  from ref 128386 z 1999 to ref 131074
+simplerelationcanvas 131970 simplerelation_ref 128642
+  from ref 130946 z 3004 to ref 131202
+end
+simplerelationcanvas 132098 simplerelation_ref 128770
+  from ref 131074 z 3004 to ref 131202
+end
+line 132226 --->
+  from ref 131202 z 1999 to ref 128002
+end

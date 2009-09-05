@@ -15,3 +15,4 @@ stamp-h1
 src/Makefile
 src/Makefile.in
 src/.deps
+uml/documentation

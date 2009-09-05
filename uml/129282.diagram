@@ -1,0 +1,43 @@
+format 61
+
+classcanvas 128002 class_ref 128130 // Servidor
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 26 79 2000
+end
+usecasecanvas 128770 usecase_ref 134658 // Aceitar
+  xyzwh 105 11 3005 64 32 label_xy 119 43
+end
+usecasecanvas 128898 usecase_ref 134786 // Rejeitar
+  xyzwh 331 14 3005 64 32 label_xy 345 46
+end
+classcanvas 129410 class_ref 128258 // Jogador
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 445 80 2000
+end
+usecasecanvas 129538 usecase_ref 130818 // Receber Solicitação
+  xyzwh 223 95 3005 64 32 label_xy 207 127
+end
+usecasecanvas 129922 usecase_ref 135170 // Encerrar Conexão
+  xyzwh 168 195 3005 64 32 label_xy 156 227
+end
+usecasecanvas 130178 usecase_ref 133250 // Enviar Comunicação
+  xyzwh 304 196 3005 64 32 label_xy 287 228
+end
+line 130050 --->
+  from ref 128002 z 1999 to ref 129922
+simplerelationcanvas 130306 simplerelation_ref 129282
+  from ref 129922 z 1999 to ref 130178
+end
+simplerelationcanvas 130690 simplerelation_ref 130434
+  from ref 128770 z 3004 stereotype "<<extend>>" xyz 135 65 3000 to ref 129538
+end
+simplerelationcanvas 130818 simplerelation_ref 130562
+  from ref 128898 z 3004 stereotype "<<extend>>" xyz 311 65 3000 to ref 129538
+end
+line 130946 ----
+  from ref 129410 z 1999 to ref 129538
+line 131074 ----
+  from ref 128002 z 1999 to ref 129538
+line 131330 --->
+  from ref 130178 z 1999 to ref 129410
+end

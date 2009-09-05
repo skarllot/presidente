@@ -1,0 +1,35 @@
+format 61
+
+classcanvas 128002 class_ref 128130 // Servidor
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 6 84 2000
+end
+usecasecanvas 135298 usecase_ref 128898 // Iniciar
+  xyzwh 169 6 3005 64 32 label_xy 187 38
+end
+usecasecanvas 135426 usecase_ref 128386 // Encerrar
+  xyzwh 172 191 3005 64 32 label_xy 183 223
+end
+classcanvas 136578 class_ref 128258 // Jogador
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 326 85 2000
+end
+usecasecanvas 138242 usecase_ref 136322 // Manter Comunicação
+  xyzwh 169 67 3010 64 32 label_xy 151 99
+end
+usecasecanvas 138370 usecase_ref 136450 // Manter Conexão
+  xyzwh 170 126 3005 64 32 label_xy 163 158
+end
+line 135554 ----
+  from ref 128002 z 1999 to ref 135298
+line 135682 ----
+  from ref 128002 z 1999 to ref 135426
+line 138498 ----
+  from ref 128002 z 1999 to ref 138242
+line 138626 ----
+  from ref 138242 z 1999 to ref 136578
+line 138754 ----
+  from ref 128002 z 1999 to ref 138370
+line 138882 ----
+  from ref 138370 z 1999 to ref 136578
+end

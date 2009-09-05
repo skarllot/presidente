@@ -1,0 +1,29 @@
+format 61
+
+classcanvas 128002 class_ref 128130 // Servidor
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 14 68 2000
+end
+usecasecanvas 128130 usecase_ref 132866 // Receber Conversa
+  xyzwh 172 25 3005 64 32 label_xy 159 57
+end
+usecasecanvas 128258 usecase_ref 132994 // Enviar Conversa
+  xyzwh 172 133 3005 64 32 label_xy 164 165
+end
+classcanvas 128386 class_ref 128258 // Jogador
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 357 8 2000
+end
+classcanvas 129026 class_ref 128258 // Jogador
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 355 116 2000
+end
+line 128514 --->
+  from ref 128386 z 1999 to ref 128130
+line 128642 --->
+  from ref 128130 z 1999 to ref 128002
+line 128770 --->
+  from ref 128002 z 1999 to ref 128258
+line 129154 --->
+  from ref 128258 z 1999 label "1 ou vários" xyz 267 133 3000 to ref 129026
+end

@@ -1,0 +1,55 @@
+format 67
+
+classinstance 128002 class_ref 138370 // Server
+  name ""   mortal  xyz 21 4 2000 life_line_z 2000
+classinstance 128130 class_ref 171778 // Client
+  name "client"   mortal  xyz 131 4 2000 life_line_z 2000
+classinstance 128642 class_ref 138498 // Client
+  name ""   mortal  xyz 457 4 2000 life_line_z 2000
+classinstance 129282 class_ref 165250 // UserInterface
+  name "main_screen"   mortal  xyz 266 4 2000 life_line_z 2000
+durationcanvas 128258 classinstance_ref 128002 // :Server
+  xyzwh 35 70 2010 11 119
+end
+durationcanvas 128386 classinstance_ref 128130 // client:Client
+  xyzwh 159 70 2010 11 105
+  overlappingdurationcanvas 128770
+    xyzwh 165 89 2020 11 25
+  end
+end
+durationcanvas 129410 classinstance_ref 129282 // main_screen:UserInterface
+  xyzwh 329 125 2010 11 40
+end
+durationcanvas 129666 classinstance_ref 128642 // :Client
+  xyzwh 468 131 2010 11 25
+end
+msg 128514 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 70 2015 explicitmsg "notify a move"
+  show_full_operations_definition default drawing_language default
+  label_xy 68 55
+reflexivemsg 128898 synchronous
+  to durationcanvas_ref 128770
+  yz 89 2025 explicitmsg "parse_move( )"
+  show_full_operations_definition default drawing_language default
+  label_xy 197 85
+msg 129538 synchronous
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 129410
+  yz 125 2025 explicitmsg "notify_move_done( )"
+  show_full_operations_definition default drawing_language default
+  label_xy 203 110
+msg 129794 synchronous
+  from durationcanvas_ref 129410
+  to durationcanvas_ref 129666
+  yz 131 2015 explicitmsg "show the move done"
+  show_full_operations_definition default drawing_language default
+  label_xy 351 116
+msg 129922 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 157 2015 explicitmsg "response"
+  show_full_operations_definition default drawing_language default
+  label_xy 78 142
+end

@@ -1,0 +1,78 @@
+format 67
+
+classinstance 128002 class_ref 138498 // Client
+  name ""   mortal  xyz 19 4.2 2000 life_line_z 2000
+classinstance 128130 class_ref 165250 // UserInterface
+  name "main_screen"   mortal  xyz 101.6 4.2 2000 life_line_z 2000
+classinstance 128642 class_ref 171778 // Client
+  name "client"   mortal  xyz 281.6 6.6 2000 life_line_z 2015
+classinstance 129026 class_ref 138370 // Server
+  name ""   mortal  xyz 434.6 4.2 1950 life_line_z 1685
+fragment 129794 "alt"
+  xyzwh 273.4 158.4 2010 208 77
+end
+durationcanvas 128258 classinstance_ref 128002 // :Client
+  xyzwh 30 77.4 2010 11 269
+end
+durationcanvas 128386 classinstance_ref 128130 // main_screen:UserInterface
+  xyzwh 164 77.2 2010 11 253
+  overlappingdurationcanvas 130178
+    xyzwh 170 277.6 2020 11 25
+  end
+end
+durationcanvas 128770 classinstance_ref 128642 // client:Client
+  xyzwh 309 86.8 2040 11 182
+  overlappingdurationcanvas 129538
+    xyzwh 315 113 2045 11 25
+  end
+end
+durationcanvas 129154 classinstance_ref 129026 // :Server
+  xyzwh 448 93 2035 11 156
+end
+msg 128514 synchronous
+  from durationcanvas_ref 128258
+  to durationcanvas_ref 128386
+  yz 77 2015 explicitmsg "do move"
+  show_full_operations_definition default drawing_language default
+  label_xy 80 62
+msg 128898 synchronous
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128770
+  yz 87 2020 explicitmsg "send_move( )"
+  show_full_operations_definition default drawing_language default
+  label_xy 210 72
+msg 129282 synchronous
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 129154
+  yz 182 2025 explicitmsg "send_move( )"
+  show_full_operations_definition default drawing_language default
+  label_xy 351 167
+msg 129410 return
+  from durationcanvas_ref 129154
+  to durationcanvas_ref 128770
+  yz 212 2030 explicitmsg "response"
+  show_full_operations_definition default drawing_language default
+  label_xy 359 197
+reflexivemsg 129666 synchronous
+  to durationcanvas_ref 129538
+  yz 112 2025 explicitmsg "parse_move( )"
+  show_full_operations_definition default drawing_language default
+  label_xy 348 108
+msg 129922 return
+  from durationcanvas_ref 128770
+  to durationcanvas_ref 128386
+  yz 255 2015 explicitmsg "response"
+  show_full_operations_definition default drawing_language default
+  label_xy 218 240
+msg 130050 return
+  from durationcanvas_ref 128386
+  to durationcanvas_ref 128258
+  yz 315 2020 explicitmsg "show response"
+  show_full_operations_definition default drawing_language default
+  label_xy 63 300
+reflexivemsg 130306 synchronous
+  to durationcanvas_ref 130178
+  yz 276 2025 explicitmsg "parse_response( )"
+  show_full_operations_definition default drawing_language default
+  label_xy 201 272
+end

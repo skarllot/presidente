@@ -1,0 +1,77 @@
+format 62
+
+classcanvas 128002 class_ref 128258 // Jogador
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 308 146 2000
+end
+usecasecanvas 128130 usecase_ref 137602 // Enviar Mensagem
+  xyzwh 441 297 3005 64 32 label_xy 505 317
+end
+usecasecanvas 128258 usecase_ref 137730 // Receber Mensagem
+  xyzwh 441 390 3005 64 32 label_xy 512 404
+end
+usecasecanvas 128386 usecase_ref 137858 // Executar Jogada
+  xyzwh 141 297 3005 64 32 label_xy 55 304
+end
+usecasecanvas 128514 usecase_ref 137986 // Receber Última Jogada
+  xyzwh 141 219 3005 64 32 label_xy 27 226
+end
+usecasecanvas 128770 usecase_ref 138242 // Escolher Carta Sorteio
+  xyzwh 141 9 3005 64 32 label_xy 30 14
+end
+usecasecanvas 128898 usecase_ref 138370 // Desconectar
+  xyzwh 441 150 3005 64 32 label_xy 518 159
+end
+usecasecanvas 129026 usecase_ref 138498 // Conectar
+  xyzwh 141 150 3005 64 32 label_xy 90 155
+end
+usecasecanvas 129282 usecase_ref 138626 // Receber Cartas
+  xyzwh 141 82 3005 64 32 label_xy 64 90
+end
+usecasecanvas 129538 usecase_ref 138754 // Trocar Cartas
+  xyzwh 441 219 3005 64 32 label_xy 515 228
+end
+usecasecanvas 130690 usecase_ref 138882 // Selecionar Servidor
+  xyzwh 441 82 3005 64 32 label_xy 517 91
+end
+usecasecanvas 131458 usecase_ref 140034 // Receber Hierarquia
+  xyzwh 141 390 3005 64 32 label_xy 44 398
+end
+usecasecanvas 131714 usecase_ref 140162 // Aguardar na Fila
+  xyzwh 441 9 3005 64 32 label_xy 517 19
+end
+classcanvas 131970 class_ref 128258 // Jogador
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 645 284 2000
+end
+line 129154 ----
+  from ref 128002 z 1999 to ref 129026
+line 129666 ----
+  from ref 128002 z 1999 to ref 129538
+line 130562 ----
+  from ref 128002 z 1999 to ref 128898
+line 131330 ----
+  from ref 128002 z 1999 to ref 130690
+line 131842 ----
+  from ref 128002 z 1999 to ref 131714
+line 132226 --->
+  from ref 128130 z 1999 to ref 131970
+line 132866 --->
+  from ref 131970 z 1999 to ref 128258
+line 132994 --->
+  from ref 128258 z 1999 to ref 128002
+line 133250 --->
+  from ref 131458 z 1999 to ref 128002
+line 133506 --->
+  from ref 128002 z 1999 to ref 128770
+line 133634 --->
+  from ref 128002 z 1999 to ref 128386
+line 133762 --->
+  from ref 128514 z 1999 to ref 128002
+line 133890 --->
+  from ref 129282 z 1999 to ref 128002
+line 135298 ----
+  from ref 129538 z 1999 to ref 131970
+line 136450 --->
+  from ref 128002 z 1999 to ref 128130
+end

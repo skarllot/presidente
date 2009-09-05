@@ -1,0 +1,36 @@
+format 61
+
+classcanvas 128002 class_ref 130562 // GerenciadorComunicação
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 344 36 2000
+end
+classcanvas 128130 class_ref 129410 // GerenciadorConversa
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 452 161 2000
+end
+classcanvas 128514 class_ref 128130 // Servidor
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 48 36 2000
+end
+usecasecanvas 128642 usecase_ref 136450 // Encaminhar
+  xyzwh 166 53 3005 64 32 label_xy 169 85
+end
+classcanvas 129154 class_ref 130690 // GerenciardorPartida
+  class_drawing_mode default show_context_mode default show_stereotype_properties default
+  xyz 287 169 2005
+end
+relationcanvas 128258 relation_ref 129154 // <generalisation>
+  from ref 128130 z 1999 to ref 128002
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+line 128770 --->
+  from ref 128514 z 1999 to ref 128642
+line 129026 --->
+  from ref 128642 z 1999 to ref 128002
+relationcanvas 129282 relation_ref 129282 // <generalisation>
+  from ref 129154 z 1999 to ref 128002
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end
