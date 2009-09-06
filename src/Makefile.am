@@ -1,2 +1,1 @@
-bin_PROGRAMS = presidente
-presidente_SOURCES = main.cpp
+SUBDIRS = server client

@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.54])
 AC_INIT([PRESIDENTE], [0.1], [http://github.com/skarllot/presidente/issues])
-AC_CONFIG_SRCDIR([src/main.cpp])
+AC_CONFIG_SRCDIR([src])
 AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE([1.9 -Wall -Werror])
 
@@ -19,5 +19,8 @@ AC_PROG_CXX
 # Checks for library functions.
 
 AC_CONFIG_FILES([Makefile
-                 src/Makefile])
+                    src/Makefile
+                    src/client/Makefile
+                    src/server/Makefile
+                ])
 AC_OUTPUT
