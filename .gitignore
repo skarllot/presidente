@@ -8,6 +8,7 @@ config.status
 configure
 depcomp
 .dep.inc
+.deps
 install-sh
 Makefile
 Makefile.in
@@ -15,11 +16,10 @@ missing
 *.mk
 nbproject
 *.o
-src/.deps
 src/Makefile
 src/Makefile.in
 stamp-h1
-uml/documentation
 uml/*.d
+uml/documentation
 uml/*.lock
 uml/*.session
