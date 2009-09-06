@@ -16,8 +16,10 @@ missing
 *.mk
 nbproject
 *.o
+src/client/presidente-client
 src/Makefile
 src/Makefile.in
+src/server/presidente-server
 stamp-h1
 uml/*.d
 uml/documentation

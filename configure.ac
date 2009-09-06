@@ -11,6 +11,9 @@ AM_INIT_AUTOMAKE([1.9 -Wall -Werror])
 AC_PROG_CXX
 
 # Checks for libraries.
+PKG_CHECK_MODULES([DEPS],[libccext2])
+AC_SUBST(DEPS_CFLAGS)
+AC_SUBST(DEPS_LIBS)
 
 # Checks for header files.
 
