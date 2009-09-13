@@ -12,10 +12,10 @@
 
 class Server : public ost::TCPSocket {
 public:
-    Server(ost::InetAddress& ia);
+    Server(ost::InetAddress &ia);
     virtual ~Server();
 private:
-    bool onAccept(const ost::InetHostAddress& ia, ost::tpport_t port);
+    bool onAccept(const ost::InetHostAddress &ia, ost::tpport_t port);
 };
 
 #endif	/* _SERVER_H */

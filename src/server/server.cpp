@@ -8,7 +8,7 @@
 #include "server.h"
 #include <iostream>
 
-Server::Server(ost::InetAddress& ia) : TCPSocket(ia, 4096)
+Server::Server(ost::InetAddress &ia) : TCPSocket(ia, 4096)
 {
     std::cout << "binding segsize: " << getSegmentSize() << std::endl;
 }
@@ -17,7 +17,7 @@ Server::~Server()
 {
 }
 
-bool Server::onAccept(const ost::InetHostAddress& ia, ost::tpport_t port)
+bool Server::onAccept(const ost::InetHostAddress &ia, ost::tpport_t port)
 {
     std::cout << "accepting from: " << ia << ":" << port << std::endl;
     std::cout << "binding segsize: " << getSegmentSize() << std::endl;

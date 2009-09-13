@@ -1,4 +1,5 @@
 bin_PROGRAMS = presidente-server
+
 presidente_server_SOURCES = \
     server.h \
     server.cpp \
