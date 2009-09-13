@@ -27,7 +27,7 @@
 
 class Server : public ost::TCPSocket {
 public:
-    Server(ost::InetAddress &ia);
+    Server(ost::InetAddress &ia, ost::tpport_t port);
     virtual ~Server();
 private:
     bool onAccept(const ost::InetHostAddress &ia, ost::tpport_t port);

@@ -23,7 +23,7 @@
 #include "server.h"
 #include <iostream>
 
-Server::Server(ost::InetAddress &ia) : TCPSocket(ia, 4096)
+Server::Server(ost::InetAddress &ia, ost::tpport_t port) : TCPSocket(ia, port)
 {
     std::cout << "binding segsize: " << getSegmentSize() << std::endl;
 }

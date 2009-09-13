@@ -24,31 +24,25 @@
 #include <cc++/socket.h>
 #include <cstdlib>
 
-#include "server.h"
-
 main()
 {
-    ost::tpport_t port;
-    int i;
-    ost::TCPStream tcpclient;
-    ost::InetAddress addr = "255.255.255.255";
-    //std::cout << "testing addr: " << addr << ":" << 4096 << std::endl;
+    ost::InetAddress addr = "127.0.0.1";
+    ost::tpport_t port = 4096;
+    char line[200];
 
-    addr = "127.0.0.1";
-    //std::cout << "binding for: " << addr << ":" << 4096 << std::endl;
-
+    std::cout << "binding for: " << addr << ":" << port << std::endl;
     ost::Thread::setException(ost::Thread::throwException);
 
     try
     {
-        Server server(addr);
-        while (server.isPendingConnection(30000))
+        ost::TCPSocket srv(addr, port);
+        while (srv.isPendingConnection(10000))
         {
-            ost::tpport_t port;
-            std::cout << "request" << std::endl;
-            ost::IPV4Address addr = server.getRequest(&port);
-            std::cout << "accept" << std::endl;
-            ((ost::TCPSocket)server).onAccept(addr.getHostname(), port);
+            ost::TCPStream tcp(srv);
+            tcp.getline(line, 200);
+            std::cout << line << std::endl;
+            tcp.disconnect();
+            std::cout << "disconnected" << std::endl;
         }
     }
     catch (ost::SockException &e)
@@ -57,6 +51,6 @@ main()
         exit(-1);
     }
 
-    std::cout << "timeout after 30 seconds inactivity, exiting" << std::endl;
+    std::cout << "timeout after 10 seconds inactivity, exiting" << std::endl;
     return 0;
 }
