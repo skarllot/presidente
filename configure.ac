@@ -9,6 +9,7 @@ AM_INIT_AUTOMAKE([1.9 -Wall -Werror])
 
 # Checks for programs.
 AC_PROG_CXX
+AC_PROG_RANLIB
 
 # Checks for libraries.
 PKG_CHECK_MODULES([DEPS],[libccext2])
@@ -22,8 +23,8 @@ AC_SUBST(DEPS_LIBS)
 # Checks for library functions.
 
 AC_CONFIG_FILES([Makefile
-                    src/Makefile
-                    src/client/Makefile
-                    src/server/Makefile
-                ])
+                 src/Makefile
+                 src/common/Makefile
+                 src/client/Makefile
+                 src/server/Makefile])
 AC_OUTPUT
