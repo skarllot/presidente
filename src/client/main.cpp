@@ -20,15 +20,25 @@
  */
 
 #include <iostream>
+#include <cstdlib>
 #include <cc++/socket.h>
 
 main()
 {
     ost::IPV4Host addr = "127.0.0.1";
     ushort port = 4096;
+    std::string mymsg("Hi server");
 
     ost::TCPStream tcpclient(addr, port);
-    tcpclient << "Hi server" << std::endl;
+    usleep(2000 * 1000);    // Simulates 2 seconds delay
+
+    tcpclient << mymsg << std::endl;
+    tcpclient.flush();      // sends imediately
+
+    std::string srvmsg;
+    std::getline(tcpclient, srvmsg);
+    std::cout << srvmsg << std::endl;
+
     tcpclient.disconnect();
 
     return 0;

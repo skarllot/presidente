@@ -21,14 +21,14 @@
  */
 
 #include <iostream>
-#include <cc++/socket.h>
 #include <cstdlib>
+#include <cc++/socket.h>
 
 main()
 {
     ost::InetAddress addr = "127.0.0.1";
     ost::tpport_t port = 4096;
-    char line[200];
+    std::string mymsg("Hi client");
 
     std::cout << "binding for: " << addr << ":" << port << std::endl;
     ost::Thread::setException(ost::Thread::throwException);
@@ -39,15 +39,23 @@ main()
         while (srv.isPendingConnection(10000))
         {
             ost::TCPStream tcp(srv);
-            tcp.getline(line, 200);
-            std::cout << line << std::endl;
+            if (tcp.isPending(ost::Socket::pendingInput, 5000))
+            {
+                std::string climsg;
+                std::getline(tcp, climsg);
+                std::cout << climsg << std::endl;
+            }
+
+            tcp << mymsg << std::endl;
+            tcp.flush(); // sends immediately
             tcp.disconnect();
             std::cout << "disconnected" << std::endl;
         }
     }
     catch (ost::SockException &e)
     {
-        std::cout << e.getString() << ": " << e.getSystemErrorString() << std::endl;
+        std::cout << e.getString() << ": " <<
+                e.getSystemErrorString() << std::endl;
         exit(-1);
     }
 
