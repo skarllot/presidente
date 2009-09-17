@@ -2,26 +2,26 @@ format 67
 
 classinstance 128002 class_ref 165250 // UserInterface
   name ""   mortal  xyz 176 4 2000 life_line_z 2000
-classinstance 128898 class_ref 152066 // Server
-  name "server"   mortal  xyz 349 4 2000 life_line_z 2000
+classinstance 128898 class_ref 158722 // TCPSocket
+  name "socket_server"   mortal  xyz 319 4 2000 life_line_z 2000
 classinstance 130434 class_ref 138370 // Server
   name ""   mortal  xyz 47 4 2000 life_line_z 2000
+fragment 132738 "loop"
+  form "keep_listen" xyzwh 338 139 2000 203 48
+end
 durationcanvas 130562 classinstance_ref 130434 // :Server
   xyzwh 61 76 2010 11 170
 end
 durationcanvas 130690 classinstance_ref 128002 // :UserInterface
   xyzwh 207 76 2010 11 150
 end
-durationcanvas 131202 classinstance_ref 128898 // server:Server
-  xyzwh 383 88 2010 11 125
+durationcanvas 131202 classinstance_ref 128898 // socket_server:TCPSocket
+  xyzwh 383 88 2010 11 130
   overlappingdurationcanvas 131458
     xyzwh 389 104 2020 11 25
   end
-  overlappingdurationcanvas 131714
-    xyzwh 389 139 2020 11 25
-  end
-  overlappingdurationcanvas 131970
-    xyzwh 389 172 2020 11 25
+  overlappingdurationcanvas 132482
+    xyzwh 389 152 2020 11 25
   end
 end
 msg 130818 synchronous
@@ -38,29 +38,24 @@ msg 131330 synchronous
   label_xy 267 73
 reflexivemsg 131586 synchronous
   to durationcanvas_ref 131458
-  yz 104 2030 explicitmsg "create_socket( )"
+  yz 104 2030 msg operation_ref 148226 // "TCPSocket(in &bind : &bind, in port : tpport_t)"
   show_full_operations_definition default drawing_language default
   label_xy 423 102
-reflexivemsg 131842 synchronous
-  to durationcanvas_ref 131714
-  yz 139 2025 explicitmsg "bind( )"
-  show_full_operations_definition default drawing_language default
-  label_xy 424 135
-reflexivemsg 132098 synchronous
-  to durationcanvas_ref 131970
-  yz 172 2025 explicitmsg "listen( )"
-  show_full_operations_definition default drawing_language default
-  label_xy 423 169
 msg 132226 return
   from durationcanvas_ref 131202
   to durationcanvas_ref 130690
-  yz 202 2025 explicitmsg "response"
+  yz 200 2025 explicitmsg "response"
   show_full_operations_definition default drawing_language default
-  label_xy 276 187
+  label_xy 276 185
 msg 132354 return
   from durationcanvas_ref 130690
   to durationcanvas_ref 130562
   yz 211 2030 explicitmsg "show response"
   show_full_operations_definition default drawing_language default
   label_xy 101 196
+reflexivemsg 132610 synchronous
+  to durationcanvas_ref 132482
+  yz 152 2025 msg operation_ref 148354 // "isPendingConnection(in timeout : timeout_t = TIMEOUT_INF)"
+  show_full_operations_definition default drawing_language default
+  label_xy 422 149
 end
