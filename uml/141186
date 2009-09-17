@@ -1,6 +1,6 @@
 format 67
 "Library" // Library
-  revision 3
+  revision 4
   modified_by 2 "jaelson"
   // class settings
   //class diagram settings
@@ -68,6 +68,20 @@ ${inlines}
       idl_decl "${comment}${abstract}${local}interface ${name}${inherit} {
 ${members}};
 "
+      explicit_switch_type ""
+      
+    end
+
+    class 178306 "TCPStream"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
       explicit_switch_type ""
       
     end
